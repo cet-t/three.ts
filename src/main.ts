@@ -1,7 +1,7 @@
-const appElement = document.querySelector<HTMLDivElement>('#appElement')!;
 import * as Three from 'three';
-import fs from 'fs'
-const math = Math;
+import * as trrne from '@cet-t/selftslib';
+
+const appElement = document.querySelector<HTMLDivElement>('#appElement')!;
 
 //#region initialize
 const renderer = new Three.WebGLRenderer({ antialias: true });
@@ -22,7 +22,7 @@ scene.add(cube);
 cube.position.x = -appElement.offsetWidth / 4;
 
 function update(time: number): void {
-    cube.position.y = math.sin(time / 2) * appElement.offsetHeight / 8;
+    cube.position.y = Math.sin(time / 2) * appElement.offsetHeight / 8;
     cube.rotation.x = cube.rotation.y = cube.rotation.z = time;
 }
 
@@ -31,3 +31,5 @@ renderer.setAnimationLoop(() => {
     update(time += 0.02);
     renderer.render(scene, camera);
 });
+
+new trrne.test().hello();
